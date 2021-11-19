@@ -3,6 +3,7 @@ const express = require('express');
 var cors = require('cors')
 const coursesRoute = require('./routes/courses')
 const checksRoute = require('./routes/check')
+const accountRoute = require('./routes/account')
 
 const app = express();
 
@@ -10,6 +11,8 @@ app.use(express.json());
 app.use(cors())
 app.use("/api/courses", coursesRoute)
 app.use("/api/check", checksRoute)
+app.use("/api/account", accountRoute)
+
 
 app.get('/', (req, res) => {
     res.send('Hello World');
