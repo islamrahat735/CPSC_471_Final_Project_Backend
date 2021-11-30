@@ -1,20 +1,16 @@
 const Joi = require('joi')
 const express = require('express');
 const router = express.Router()
-const db = require('../repos/db')
+const AccountController = require('../controllers/accountController')
 
-router.post('/', (req, res) => {
-    const {username, password, access} = req.body
-    if(username && password && access){
-        try{
-            db.promise().query(`INSERT INTO Account VALUES('${username}','${password}', '${access}')`);
-            res.status(200).send(req.body);
-        }
-        catch(err){
-            console.log(err)
-        }
-    }
-});
+router.post('/', AccountController.addAccount);
 
+router.get('/', AccountController.findAll);
+
+router.get('/:username', AccountController.findOne)
+
+router.delete('/:username', AccountController.delete)
 
 module.exports = router;
+
+
