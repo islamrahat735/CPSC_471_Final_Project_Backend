@@ -2,16 +2,16 @@ const db = require('../repos/db')
 
 class AccountModel{
 
-    findAll = (result) => {
+    findAll = (callback) => {
     
-        db.query('SELECT * FROM Account', (err, results, fields) =>{
+        db.query('SELECT * FROM Account', (err, results ) =>{
                 if (err){
-                    result(err, null);
+                    callback(err, null);
                     return;
                 }
                 //console.log(results);
-                console.log(results);
-                result(null, results);
+                //console.log(results);
+                callback(null, results);
                 return;
                 
             });   
@@ -20,7 +20,7 @@ class AccountModel{
     addAccount = (username, password, access, result) => {
         db.query(`INSERT INTO Account VALUES('${username}','${password}', '${access}')`, (err, results, fields) =>{
             if(err){
-                result(err, null);
+                result(err, null)
             }
             else{
                 result(null, results);
