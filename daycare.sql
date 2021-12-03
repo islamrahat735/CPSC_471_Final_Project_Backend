@@ -216,4 +216,11 @@ VALUES('parent@gmail.com', 'password', 'parent');
 INSERT INTO Primary_Parent(Address, Fname, Lname, Phone_num, Fees, Username)
 VALUES('121 Taradale Dr. NE', 'John', 'Doe', '403-273-7373', Default, 'parent@gmail.com');
 
+INSERT INTO Medical_Record(Covid_Status)
+VALUES("negative");
 
+INSERT INTO MR_Vaccinations(MR_Id, Vaccine)
+VALUES(1, "Covid Vaccine");
+
+INSERT INTO MR_Vaccinations(MR_Id, Vaccine)
+VALUES(1, "Hepatitis");
