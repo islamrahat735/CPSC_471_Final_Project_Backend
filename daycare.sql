@@ -224,3 +224,5 @@ VALUES(1, "Covid Vaccine");
 
 INSERT INTO MR_Vaccinations(MR_Id, Vaccine)
 VALUES(1, "Hepatitis");
+INSERT INTO Emergency_Contact(Name,Pno)
+VALUES('Asma', '119');

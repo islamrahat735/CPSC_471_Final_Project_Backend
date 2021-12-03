@@ -21,7 +21,7 @@ app.use("/api/mr/vaccination", mrVaccinationRoute)
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    res.send('Hello ');
 });
 
 
