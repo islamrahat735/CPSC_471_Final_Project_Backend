@@ -36,15 +36,15 @@ class EmergencyContactModel{
           }
         })
     }
-delete = (Pno,callback)=>
-db.query(`DELETE FROM EmergencyContact WHERE Pno= "${Pno}"`,(err,results)=>{
-    if(err){
-        callback(err, null);
-    }
-    else{
-        callback(null, results);
-    }
-    })
+    delete = (Pno,callback)=>
+    db.query(`DELETE FROM EmergencyContact WHERE Pno= "${Pno}"`,(err,results)=>{
+        if(err){
+            callback(err, null);
+        }
+        else{
+            callback(null, results);
+        }
+        })
 }
 
 
