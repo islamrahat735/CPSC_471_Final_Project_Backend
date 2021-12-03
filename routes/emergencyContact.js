@@ -9,6 +9,6 @@ router.get('/', EmergencyContactController.findAll);
 
  router.get('/:Pno', EmergencyContactController.findOne);
 
-// router.delete('/:username', AccountController.delete)
+router.delete('/:Pno', EmergencyContactController.delete);
 
 module.exports = router;
