@@ -3,9 +3,9 @@ const express = require('express');
 const router = express.Router()
 const ParentController = require('../controllers/parentController')
 
-router.get('/', ParentController.findall);
+router.get('/all/', ParentController.findall);
 
-router.get('/:pid', ParentController.findOne);
+router.get('/one/:pid', ParentController.findOne);
 
 router.post('/', ParentController.addParent);
 
