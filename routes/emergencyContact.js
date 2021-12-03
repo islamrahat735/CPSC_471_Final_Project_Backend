@@ -11,4 +11,6 @@ router.get('/', EmergencyContactController.findAll);
 
 router.delete('/:Pno', EmergencyContactController.delete);
 
+router.put('/', EmergencyContactController.updateEmergencyContact);
+
 module.exports = router;

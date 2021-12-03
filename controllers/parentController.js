@@ -54,7 +54,7 @@ class ParentController{
                     res.status(404).send({msg : "Parent doesn't exist"});
                 }
                 else{
-                    ParentModel.updateParent(pid, address, fname, lname, phone, fees, username,
+                    ParentModel.updateParent(pid, address, fname, lname, phone, fees,
                         (err, results) =>{
                             if(err){
                                 res.status(500).send(err);

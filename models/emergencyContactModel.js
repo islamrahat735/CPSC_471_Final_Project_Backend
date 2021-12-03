@@ -46,6 +46,31 @@ class EmergencyContactModel{
             }
         })
     }
+    updateEmergencyContact = (Pno, Name, callback) => {
+        db.query(
+            `UPDATE Emergency_Contact
+            SET 
+                Pno = '${Pno}',
+                Name = '${Name}'
+               
+            WHERE
+                Pno = ${Pno}`, (err, results) =>{
+                    if(err){
+                        callback(err, null);
+                    }
+                    else{
+                        db.query(`SELECT * FROM Emergency_Contact as P
+                        WHERE  Pno = ${Pno}`, (err, results)=>{
+                            if(err){
+                                callback(err, null);
+                            }
+                            else{
+                                callback(null, results);
+                            }
+                        })
+                    }
+                })
+    };
 
 }
 

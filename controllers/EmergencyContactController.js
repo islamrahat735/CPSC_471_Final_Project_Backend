@@ -70,6 +70,30 @@ class EmergencyContactController{
             }
             })
     }
-
+    updateEmergencyContact = (req, res) => {
+        const {Pno, Name} = req.body
+        EmergencyContactModel.findOne(Pno, (err, data) => {
+            if(err){
+                res.status(500).send(err);
+            }
+            else{
+                if(Object.keys(data).length === 0){
+                    res.status(404).send({msg : "Contact doesn't exist"});
+                }
+                else{
+                    EmergencyContactModel.updateEmergencyContact(Pno, Name,
+                        (err, results) =>{
+                            if(err){
+                                res.status(500).send(err);
+                            }
+                            else{
+                                res.status(200).send(results);
+                            }
+                        })
+                }
+            }
+        })
+        
+    };
 }
 module.exports = new EmergencyContactController
