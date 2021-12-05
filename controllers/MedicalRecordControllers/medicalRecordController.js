@@ -52,7 +52,7 @@ class MedicalRecordController{
 
         MedicalRecordModel.findOneById(mrid, (err, data) =>{
             if(err){ res.status(500).send(err) }
-            else if (object.keys(data) === 0){
+            else if (Object.keys(data) === 0){
                 res.status(404).send({msg: "account does not exist"});
             }
             else{
@@ -67,7 +67,7 @@ class MedicalRecordController{
     }
 
     deleteRecord = (req, res) =>{
-        const mrid = req.param.mrid;
+        const mrid = req.params.mrid;
 
         MedicalRecordModel.deleteRecord(mrid, (err, data) => {
             if(err){res.status(500).send(err)}

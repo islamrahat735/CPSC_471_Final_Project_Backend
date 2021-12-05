@@ -18,9 +18,12 @@ class VaccinationController{
 
     findOneById = (req, res) =>{
         const {mrid, vaccine} = req.params;
-        VaccinationModel.findAllById(mrid, vaccine, (err, data) => {
+        VaccinationModel.findOneById(mrid, vaccine, (err, data) => {
             if(err){
                 res.status(500).send(err);
+            }
+            else if (Object.keys(data) === 0){
+                res.status(404).send({msg: "vaccine record does not exist"});
             }
             else{
                 res.status(200).send(data);
@@ -35,38 +38,38 @@ class VaccinationController{
                 res.status(500).send(err);
             }
             else{
-                res.status(200).send(data)
+                res.status(200).send(req.body)
             }
         })
     }
 
-    updateVaccineById = (req, res) =>{
+    // updateVaccineById = (req, res) =>{
 
-        const {mrid , vaccine} = req.body;
+    //     const {mrid , vaccine} = req.body;
 
-        VaccinationModel.findOneById(mrid,vaccine, (err, data) =>{
-            if(err){ res.status(500).send(err) }
-            else if (object.keys(data) === 0){
-                res.status(404).send({msg: "vaccine record does not exist"});
-            }
-            else{
-                VaccinationModel.updateVaccineById(mrid, vaccine, (err,data) =>{
-                    if(err){res.status(500).send(err)}
-                    else{
-                        res.status(200).send(data);
-                    }
-                })
-            }
-        })
+    //     VaccinationModel.findOneById(mrid,vaccine, (err, data) =>{
+    //         if(err){ res.status(500).send(err) }
+    //         else if (object.keys(data) === 0){
+    //             res.status(404).send({msg: "vaccine record does not exist"});
+    //         }
+    //         else{
+    //             VaccinationModel.updateVaccineById(mrid, vaccine, (err,data) =>{
+    //                 if(err){res.status(500).send(err)}
+    //                 else{
+    //                     res.status(200).send(data);
+    //                 }
+    //             })
+    //         }
+    //     })
 
-    }
+    // }
 
     deleteVaccineById = (req, res) =>{
-        const {mrid , vaccine} = req.body;
+        const {mrid , vaccine} = req.params;
 
         VaccinationModel.findOneById(mrid,vaccine, (err, data) =>{
             if(err){ res.status(500).send(err) }
-            else if (object.keys(data) === 0){
+            else if (Object.keys(data) === 0){
                 res.status(404).send({msg: "vaccine record does not exist"});
             }
             else{

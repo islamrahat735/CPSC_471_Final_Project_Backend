@@ -32,7 +32,7 @@ CREATE TABLE Primary_Parent(
 	Username varchar(255),
 
 	PRIMARY KEY (P_Id),
-	FOREIGN KEY (Username) REFERENCES Account(Username)
+	FOREIGN KEY (Username) REFERENCES Account(Username) ON UPDATE CASCADE ON DELETE CASCADE
 
 );
 
@@ -66,28 +66,28 @@ CREATE TABLE MR_Vaccinations(
 	MR_Id int,
 	Vaccine varchar(255),
 	PRIMARY KEY (MR_Id, Vaccine),
-	FOREIGN KEY (MR_Id) REFERENCES Medical_Record(MR_Id)
+	FOREIGN KEY (MR_Id) REFERENCES Medical_Record(MR_Id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE MR_Medications(
 	MR_Id int,
 	Med varchar(255),
 	PRIMARY KEY (MR_Id, Med),
-	FOREIGN KEY (MR_Id) REFERENCES Medical_Record(MR_Id)
+	FOREIGN KEY (MR_Id) REFERENCES Medical_Record(MR_Id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE MR_Allergies(
 	MR_Id int,
 	Allergy varchar(255),
 	PRIMARY KEY (MR_Id, Allergy),
-	FOREIGN KEY (MR_Id) REFERENCES Medical_Record(MR_Id)
+	FOREIGN KEY (MR_Id) REFERENCES Medical_Record(MR_Id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE MR_Health_Conditions(
 	MR_Id int,
 	Health_Condition varchar(255),
 	PRIMARY KEY (MR_Id, Health_Condition),
-	FOREIGN KEY (MR_Id) REFERENCES Medical_Record(MR_Id)
+	FOREIGN KEY (MR_Id) REFERENCES Medical_Record(MR_Id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Employee(

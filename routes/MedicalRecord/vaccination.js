@@ -5,12 +5,12 @@ const VaccinationController = require('../../controllers/MedicalRecordController
 
 router.post('/', VaccinationController.addVaccineById);
 
-router.get('/all/:mrid', VaccinationController.findAllById);
+router.get('/:mrid', VaccinationController.findAllById);
 
-router.get('/one/:mrid/:vaccine', VaccinationController.findOneById);
+router.get('/:mrid/:vaccine', VaccinationController.findOneById);
 
 router.delete('/:mrid/:vaccine', VaccinationController.deleteVaccineById);
 
-router.put('/', VaccinationController.updateVaccineById);
+//router.put('/', VaccinationController.updateVaccineById);
 
 module.exports = router;
