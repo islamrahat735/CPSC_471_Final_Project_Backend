@@ -71,8 +71,9 @@ class MedicalRecordController{
 
         MedicalRecordModel.deleteRecord(mrid, (err, data) => {
             if(err){res.status(500).send(err)}
+            else if(data.affectedRows === 0){ res.status(400).send({msg : "record not found"}) }
             else{
-                res.status(200).send({msg : "success!"})
+                res.status(200).send({msg : "success"})
             }
         })
 
