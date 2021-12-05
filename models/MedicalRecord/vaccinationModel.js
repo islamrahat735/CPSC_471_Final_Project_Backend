@@ -14,7 +14,7 @@ class VaccinationModel{
     }
 
     findOneById = (mrid, vaccine, callback) =>{
-        db.query(`SELECT Vaccine FROM MR_Vaccinations WHERE MR_Id =${mrid} and Vaccine =${vaccine}`, (err, result) =>{
+        db.query(`SELECT Vaccine FROM MR_Vaccinations WHERE MR_Id =${mrid} and Vaccine ="${vaccine}"`, (err, result) =>{
             if(err){ callback(err, null) }
             else{
                 callback(null, result.map(x => x.Vaccine));
@@ -35,31 +35,31 @@ class VaccinationModel{
         
     }
 
-    updateVaccineById = (mrid, vaccine, callback) =>{
-        db.query( `UPDATE MR_Vaccinations
-        SET 
-            Vaccine = '${vaccine}'
-        WHERE
-            MR_Id = ${mrid}`, (err, results) =>{
-                if(err){
-                    callback(err, null);
-                }
-                else{
-                    db.query(`SELECT * FROM MR_Vaccinations WHERE MR_Id = ${mrid} and Vaccine = ${vaccine}`, (err, results) =>{
-                        if(err){
-                            callback(err, null);
-                        }
-                        else{
-                            callback(null, results);
-                        }
-                    })
-                }
-            });
+    // updateVaccineById = (mrid, vaccine, callback) =>{
+    //     db.query( `UPDATE MR_Vaccinations
+    //     SET 
+    //         Vaccine = '${vaccine}'
+    //     WHERE
+    //         MR_Id = ${mrid}`, (err, results) =>{
+    //             if(err){
+    //                 callback(err, null);
+    //             }
+    //             else{
+    //                 db.query(`SELECT * FROM MR_Vaccinations WHERE MR_Id = ${mrid} and Vaccine = ${vaccine}`, (err, results) =>{
+    //                     if(err){
+    //                         callback(err, null);
+    //                     }
+    //                     else{
+    //                         callback(null, results);
+    //                     }
+    //                 })
+    //             }
+    //         });
 
-    }
+    // }
 
     deleteVaccineById = (mrid, vaccine, callback) =>{
-        db.query(`DELETE FROM MR_Vaccinations WHERE MR_Id = ${mrid} and Vaccine = ${vaccine}`, (err, results) =>{
+        db.query(`DELETE FROM MR_Vaccinations WHERE MR_Id = ${mrid} and Vaccine = "${vaccine}"`, (err, results) =>{
             if(err){
                 callback(err, null);
             }

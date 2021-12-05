@@ -5,11 +5,11 @@ const MedicalRecordController = require('../../controllers/MedicalRecordControll
 
 router.post('/', MedicalRecordController.addRecord);
 
-router.get('/:mrid', MedicalRecordController.findAll);
+router.get('/', MedicalRecordController.findAll);
 
-router.get('/:mrid/:covidStatus', MedicalRecordController.findOneById);
+router.get('/:mrid', MedicalRecordController.findOneById);
 
-router.delete('/:mrid/:covidStatus', MedicalRecordController.deleteRecord);
+router.delete('/:mrid', MedicalRecordController.deleteRecord);
 
 router.put('/', MedicalRecordController.updateRecord);
 

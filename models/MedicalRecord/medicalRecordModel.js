@@ -53,7 +53,7 @@ class MedicalRecordModel{
                     callback(err, null);
                 }
                 else{
-                    db.query(`SELECT * FROM Medical_Record WHERE MR_Id = ${mrid} and Covid_Status = ${covidStatus}`, (err, results) =>{
+                    db.query(`SELECT * FROM Medical_Record WHERE MR_Id = ${mrid} and Covid_Status = "${covidStatus}"`, (err, results) =>{
                         if(err){
                             callback(err, null);
                         }
