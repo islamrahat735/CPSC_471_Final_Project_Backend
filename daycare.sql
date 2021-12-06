@@ -45,10 +45,10 @@ CREATE TABLE Child(
 	Lname varchar(255),
 	status varchar(255),
 	Dob DATE NOT NULL,
-	MR_Id int NOT NULL,
+	MR_Id int,
 
 	PRIMARY KEY (Child_Id),
-	FOREIGN KEY (P_Id) REFERENCES Primary_Parent(P_Id),
+	FOREIGN KEY (P_Id) REFERENCES Primary_Parent(P_Id) ON UPDATE CASCADE ON DELETE CASCADE,
 	FOREIGN KEY (MR_Id) REFERENCES Medical_Record(MR_Id)
 );
 
@@ -215,6 +215,9 @@ VALUES('parent@gmail.com', 'password', 'parent');
 
 INSERT INTO Primary_Parent(Address, Fname, Lname, Phone_num, Fees, Username)
 VALUES('121 Taradale Dr. NE', 'John', 'Doe', '403-273-7373', Default, 'parent@gmail.com');
+
+INSERT INTO Child(P_Id, Prog_name, Address, Fname, Lname, status, Dob, MR_Id)
+VALUES(1, NULL, '768 Deerfoot Meadows Cr. NE', 'Allen', 'Walker', 'Active', '2000-01-01',NULL);
 
 INSERT INTO Medical_Record(Covid_Status)
 VALUES("negative");
