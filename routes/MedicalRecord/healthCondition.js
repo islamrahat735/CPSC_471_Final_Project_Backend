@@ -11,6 +11,6 @@ router.get('/:mrid/:condition', HealthConditionController.findOneById);
 
 router.delete('/:mrid/:condition', HealthConditionController.deleteConditionById);
 
-router.put('/', HealthConditionController.updateConditionById);
+//router.put('/', HealthConditionController.updateConditionById);
 
 module.exports = router;
