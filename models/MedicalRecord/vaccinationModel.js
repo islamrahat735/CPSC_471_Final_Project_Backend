@@ -24,7 +24,7 @@ class VaccinationModel{
 
     addVaccineById = (mrid, vaccine, callback) =>{
         db.query(`INSERT INTO MR_Vaccinations(MR_Id, Vaccine)
-        VALUES(${mrid}, "${vaccine}")`, (err, results) => {
+        VALUES(${mrid}, '${vaccine}')`, (err, results) => {
             if (err){
                 callback(err, null);
             }
