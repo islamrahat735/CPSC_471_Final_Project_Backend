@@ -147,7 +147,7 @@ CREATE TABLE Teacher(
 
 CREATE TABLE Program(
 	Name varchar(255),
-	Length int,
+	Fees int,
 	Age_Group varchar(255),
 
 	PRIMARY KEY (Name)
