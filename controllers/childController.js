@@ -42,7 +42,7 @@ class ChildController{
             if(err){
                 res.status(500).send(err)
             }
-            else if(data.affectedRows === 0){ res.status(400).send({msg : "child not found"}) }
+            else if(data.affectedRows === 0){ res.status(404).send({msg : "child not found"}) }
             else{
                 res.status(200).send(data)
             }
@@ -54,7 +54,7 @@ class ChildController{
 
         ChildModel.deleteChild(chId, (err, data) => {
             if(err){res.status(500).send(err)}
-            else if(data.affectedRows === 0){ res.status(400).send({msg : "child not found"}) }
+            else if(data.affectedRows === 0){ res.status(404).send({msg : "child not found"}) }
             else{
                 res.status(200).send({msg : "success"})
             }

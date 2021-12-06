@@ -10,6 +10,7 @@ const childRoute = require('./routes/children')
 const emergencyContactRoute = require('./routes/emergencyContact')
 const mrVaccinationRoute = require('./routes/MedicalRecord/vaccination')
 const medicalRecordRoute = require('./routes/MedicalRecord/medicalRecord')
+const programRoute = require('./routes/program')
 
 
 const app = express();
@@ -24,6 +25,7 @@ app.use("/api/child", childRoute)
 app.use("/api/emergencyContact", emergencyContactRoute)
 app.use("/api/medicalRecord", medicalRecordRoute)
 app.use("/api/mr/vaccination", mrVaccinationRoute)
+app.use("/api/program", programRoute)
 
 
 app.get('/', (req, res) => {
