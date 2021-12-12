@@ -211,7 +211,8 @@ CREATE TABLE Child_Attends_Field_Trip(
 
 
 INSERT INTO Account(Username,Password, Access)
-VALUES('parent@gmail.com', 'password', 'parent');
+VALUES('parent@gmail.com', 'password', 'parent'),
+	('josHill@gmail.com', 'pass', 'teacher');
 
 INSERT INTO Primary_Parent(Address, Fname, Lname, Phone_num, Fees, Username)
 VALUES('121 Taradale Dr. NE', 'John', 'Doe', '403-273-7373', Default, 'parent@gmail.com');
@@ -220,7 +221,8 @@ INSERT INTO Child(P_Id, Prog_name, Address, Fname, Lname, status, Dob, MR_Id)
 VALUES(1, NULL, '768 Deerfoot Meadows Cr. NE', 'Allen', 'Walker', 'Active', '2000-01-01',NULL);
 
 INSERT INTO Medical_Record(Covid_Status)
-VALUES("negative");
+VALUES("negative"),
+	  ("negative");
 
 INSERT INTO MR_Vaccinations(MR_Id, Vaccine)
 VALUES(1, "Covid Vaccine");
@@ -229,3 +231,14 @@ INSERT INTO MR_Vaccinations(MR_Id, Vaccine)
 VALUES(1, "Hepatitis");
 INSERT INTO Emergency_Contact(Name,Pno)
 VALUES('Asma', '119');
+
+INSERT INTO Employee(Address, Fname, Lname, Phone_num, MR_Id)
+VALUES ("12 University Dr.", "Josephine", "Hill", "403-415-4234", 2);
+
+INSERT INTO Teacher(E_Id, Username)
+VALUES ("1", 'josHill@gmail.com');
+
+INSERT INTO Program(Name, Fees, Age_Group)
+VALUES ("Preschool", 300, "2-4");
+
+INSERT INTO Class(Prog_name, Class_name, )
