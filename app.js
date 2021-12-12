@@ -10,6 +10,7 @@ const emergencyContactRoute = require('./routes/emergencyContact')
 const mrVaccinationRoute = require('./routes/MedicalRecord/vaccination')
 const medicalRecordRoute = require('./routes/MedicalRecord/medicalRecord')
 const mrhealthConditionRoute=require('./routes/MedicalRecord/healthCondition')
+const mrallergyRoute=require('./routes/MedicalRecord/allergy')
 
 const app = express();
 
@@ -23,7 +24,7 @@ app.use("/api/emergencyContact", emergencyContactRoute)
 app.use("/api/medicalRecord", medicalRecordRoute)
 app.use("/api/mr/vaccination", mrVaccinationRoute)
 app.use("/api/mr/healthCondition", mrhealthConditionRoute)
-
+app.use("/api/mr/allergy", mrallergyRoute )
 
 app.get('/', (req, res) => {
     res.send('Hello ');

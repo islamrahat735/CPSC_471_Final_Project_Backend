@@ -230,3 +230,6 @@ VALUES('Asma', '119');
 
 INSERT INTO MR_Health_Conditions(MR_Id, Health_Condition)
 VALUES(1, "Flu");
+
+INSERT INTO MR_Allergies(MR_Id, Allergy)
+VALUES(1,"Dust");
