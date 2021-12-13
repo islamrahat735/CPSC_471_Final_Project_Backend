@@ -11,6 +11,6 @@ router.get('/:mrid/:allergy', AllergyController.findOneById);
 
 router.delete('/:mrid/:allergy', AllergyController.deleteAllergyById);
 
-router.put('/', AllergyController.updateAllergyById);
+//router.put('/', AllergyController.updateAllergyById);
 
 module.exports = router;
