@@ -15,4 +15,6 @@ router.delete('/:chId',  ChildController.deleteChild)
 
 router.get('/parent/:pid', ChildController.findChildrenOfParent)
 
+router.get('/username/:username', ChildController.findChildrenOfParentByUsername)
+
 module.exports = router;

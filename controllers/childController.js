@@ -73,6 +73,18 @@ class ChildController{
         })
     };
 
+    findChildrenOfParentByUsername = (req, res) => {
+        const username = req.params.username
+        ChildModel.getAllChildrenOfParentByUsername(username,(err,data) =>{
+            if(err){
+                res.status(500).send(err);
+            }
+            else{
+                res.status(200).send(data)
+            }
+        })
+    };
+
 }
 
 module.exports = new ChildController  

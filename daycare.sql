@@ -157,7 +157,8 @@ CREATE TABLE Class(
 	C_Id int AUTO_INCREMENT,
 	Prog_name varchar(255),
 	Class_name varchar(255) NOT NULL,
-	Time varchar(255) NOT NULL,
+	startTime varchar(255) NOT NULL,
+	endTime varchar(255) NOT NULL,
 	T_Id int,
 
 	PRIMARY KEY(C_Id, Prog_name),
@@ -252,6 +253,9 @@ VALUES (2, 'josHill@gmail.com');
 INSERT INTO Program(Name, Fees, Age_Group)
 VALUES ("Preschool", 300, "2-4");
 
+
+-- INSERT INTO Class(Prog_name, Class_name, )
+
 INSERT INTO Nurse (E_Id)
 VALUES("1");
 
@@ -261,3 +265,4 @@ VALUES ("1");
 INSERT INTO Admin (E_Id, Username)
 VALUES(3, 'admin123@gmail.com');
  
+

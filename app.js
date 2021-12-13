@@ -14,9 +14,15 @@ const mrhealthConditionRoute=require('./routes/MedicalRecord/healthCondition')
 const mrallergyRoute=require('./routes/MedicalRecord/allergy')
 const employeeRoute=require('./routes/employee')
 const programRoute = require('./routes/program')
+
+const classRoute = require('./routes/class')
+
+
+
 const nurseRoute = require('./routes/nurse')
 const caretakerRoute = require('./routes/caretaker')
 const adminRoute=require('./routes/admin')
+
 const app = express();
 
 app.use(express.json());
@@ -33,9 +39,14 @@ app.use("/api/mr/healthCondition", mrhealthConditionRoute)
 app.use("/api/mr/allergy", mrallergyRoute )
 app.use("/api/employee", employeeRoute)
 app.use("/api/program", programRoute)
+
+app.use("/api/class", classRoute)
+
+
 app.use("/api/nurse", nurseRoute)
 app.use("/api/caretaker", caretakerRoute)
 app.use("/api/admin", adminRoute)
+
 app.get('/', (req, res) => {
     res.send('Hello ');
 });

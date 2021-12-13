@@ -101,6 +101,19 @@ class ChildModel{
         })
     }
 
+    getAllChildrenOfParentByUsername = (username, callback) => {
+        db.query(`SELECT C.Child_Id, C.Fname, C.Lname
+                FROM Child As C, Primary_Parent as P 
+                WHERE C.P_Id = P.P_Id and P.Username = ?  `,[username], (err, results) =>{
+            if(err){
+                callback(err, null);
+            }
+            else{
+                callback(null, results)
+            }
+        })
+    }
+
     unixToFormattedTime = (unixTimestamp) =>{
         
         const date = new Date(unixTimestamp);
