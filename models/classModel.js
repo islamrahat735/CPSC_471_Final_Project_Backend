@@ -53,7 +53,7 @@ class ClassModel{
     }
 
     updateClass = (input, callback) => {
-        const{cid, progName, }
+        const{cid, progName,className, time, tid } = input;
         db.query(`UPDATE Class
                 SET 
                 Prog_name = ?,
@@ -61,6 +61,15 @@ class ClassModel{
                 Time = ?,
                 T_Id = ?
                 WHERE C_Id = ?`,
-                Time)
+                [cid, progName,className, time, tid], (err, result) => {
+                    if(err){
+                        callback(err, null)
+                    }
+                    else{
+                        callback(null, result)
+                    }
+                })
     }
 }
+
+module.exports = new ClassModel

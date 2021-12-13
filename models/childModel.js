@@ -109,10 +109,7 @@ class ChildModel{
                 callback(err, null);
             }
             else{
-                callback(null, results.map(x =>{
-                    x.Dob = this.dateToFormattedTime(x.Dob)
-                    return x;
-                }))
+                callback(null, results)
             }
         })
     }

@@ -240,4 +240,4 @@ VALUES ("1", 'josHill@gmail.com');
 INSERT INTO Program(Name, Fees, Age_Group)
 VALUES ("Preschool", 300, "2-4");
 
-INSERT INTO Class(Prog_name, Class_name, )
+-- INSERT INTO Class(Prog_name, Class_name, )
