@@ -157,7 +157,8 @@ CREATE TABLE Class(
 	C_Id int AUTO_INCREMENT,
 	Prog_name varchar(255),
 	Class_name varchar(255) NOT NULL,
-	Time varchar(255) NOT NULL,
+	startTime varchar(255) NOT NULL,
+	endTime varchar(255) NOT NULL,
 	T_Id int,
 
 	PRIMARY KEY(C_Id, Prog_name),
