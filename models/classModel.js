@@ -53,9 +53,14 @@ class ClassModel{
     }
 
     updateClass = (input, callback) => {
+        const{cid, progName, }
         db.query(`UPDATE Class
-                SET Prog_name = ?,
-                Class_name = ?`,
+                SET 
+                Prog_name = ?,
+                Class_name = ?,
+                Time = ?,
+                T_Id = ?
+                WHERE C_Id = ?`,
                 Time)
     }
 }

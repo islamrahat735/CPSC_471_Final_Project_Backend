@@ -87,6 +87,20 @@ class ChildModel{
         })
     };
 
+    getAllChildrenOfParent = (pid, callback) => {
+        db.query('SELECT * FROM Child WHERE P_Id = ? ',[pid], (err, results) =>{
+            if(err){
+                callback(err, null);
+            }
+            else{
+                callback(null, results.map(x =>{
+                    x.Dob = this.dateToFormattedTime(x.Dob)
+                    return x;
+                }))
+            }
+        })
+    }
+
     unixToFormattedTime = (unixTimestamp) =>{
         
         const date = new Date(unixTimestamp);

@@ -13,4 +13,6 @@ router.put('/',  ChildController.updateChild);
 
 router.delete('/:chId',  ChildController.deleteChild)
 
+router.get('/parent/:pid', ChildController.findChildrenOfParent)
+
 module.exports = router;

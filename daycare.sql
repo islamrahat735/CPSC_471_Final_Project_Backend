@@ -170,7 +170,6 @@ CREATE TABLE Field_Trip(
 	Program varchar(255),
 	Location varchar(255),
 	T_Id int,
-
 	PRIMARY KEY (Trip_Id),
 	FOREIGN KEY (Program) REFERENCES Program(Name),
 	FOREIGN KEY (T_Id) REFERENCES Teacher(E_Id)

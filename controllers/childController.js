@@ -61,6 +61,18 @@ class ChildController{
         })
     };
 
+    findChildrenOfParent = (req, res) => {
+        const pid = req.params.pid
+        ChildModel.getAllChildrenOfParent(pid,(err,data) =>{
+            if(err){
+                res.status(500).send(err);
+            }
+            else{
+                res.status(200).send(data)
+            }
+        })
+    };
+
 }
 
 module.exports = new ChildController  
