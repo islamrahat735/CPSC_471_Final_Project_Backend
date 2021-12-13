@@ -233,3 +233,8 @@ VALUES(1, "Flu");
 
 INSERT INTO MR_Allergies(MR_Id, Allergy)
 VALUES(1,"Dust");
+
+INSERT INTO Employee(Address, Fname, Lname, Phone_num, MR_Id)
+VALUES('121 Taradale Dr NE', 'John', 'Doe', '4032737373', 1);
+
+
