@@ -22,7 +22,7 @@ const classRoute = require('./routes/class')
 const nurseRoute = require('./routes/nurse')
 const caretakerRoute = require('./routes/caretaker')
 const adminRoute=require('./routes/admin')
-
+const teacherRoute = require('./routes/teacher')
 const app = express();
 
 app.use(express.json());
@@ -46,7 +46,7 @@ app.use("/api/class", classRoute)
 app.use("/api/nurse", nurseRoute)
 app.use("/api/caretaker", caretakerRoute)
 app.use("/api/admin", adminRoute)
-
+app.use("/api/teacher", teacherRoute)
 app.get('/', (req, res) => {
     res.send('Hello ');
 });
