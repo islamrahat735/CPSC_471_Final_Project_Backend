@@ -254,7 +254,7 @@ VALUES (2, 'josHill@gmail.com'),
 
 INSERT INTO Program(Name, Fees, Age_Group)
 VALUES ("Preschool", 300, "2-4"),
-	("nursery", 350, "3-4");
+	(3, 350, "3-4");
 
 
 -- INSERT INTO Class(Prog_name, Class_name, )
@@ -269,4 +269,4 @@ INSERT INTO Admin (E_Id, Username)
 VALUES(3, 'admin123@gmail.com');
  
 INSERT INTO Field_Trip (Trip_Id, Program, Location, T_Id)
-VALUES("20", "nursery", "Calgary", "123");
+VALUES("20", 3, "Calgary", 4);
