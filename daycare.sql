@@ -243,14 +243,17 @@ VALUES(1,"Dust");
 INSERT INTO Employee(Address, Fname, Lname, Phone_num, MR_Id)
 VALUES('121 Taradale Dr NE', 'John', 'Doe', '4032737373', 1),
 	("12 University Dr.", "Josephine", "Hill", "403-415-4234", NULL),
-	("12 Skyview Dr", "Josh", "Day", "403-333-3333", NULL);
+	("12 Skyview Dr", "Josh", "Day", "403-333-3333", NULL),
+	("33 cornerstone Ave NE", "sarah", "cameron", "403-444-4545", NULL);
 
 INSERT INTO Teacher(E_Id, Username)
-VALUES (2, 'josHill@gmail.com');
+VALUES (2, 'josHill@gmail.com'),
+	("123", 'sarahcameron@gmail.com');
 
 
 INSERT INTO Program(Name, Fees, Age_Group)
-VALUES ("Preschool", 300, "2-4");
+VALUES ("Preschool", 300, "2-4"),
+	("nursery", 350, "3-4");
 
 
 -- INSERT INTO Class(Prog_name, Class_name, )
@@ -264,4 +267,5 @@ VALUES ("1");
 INSERT INTO Admin (E_Id, Username)
 VALUES(3, 'admin123@gmail.com');
  
-
+INSERT INTO Field_Trip (Trip_Id, Program, Location, T_Id)
+VALUES("20", "nursery", "Calgary", "123");

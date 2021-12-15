@@ -14,7 +14,7 @@ const mrhealthConditionRoute=require('./routes/MedicalRecord/healthCondition')
 const mrallergyRoute=require('./routes/MedicalRecord/allergy')
 const employeeRoute=require('./routes/employee')
 const programRoute = require('./routes/program')
-
+const fieldtripRoute= require('./routes/fieldtrip')
 const classRoute = require('./routes/class')
 
 
@@ -39,7 +39,7 @@ app.use("/api/mr/healthCondition", mrhealthConditionRoute)
 app.use("/api/mr/allergy", mrallergyRoute )
 app.use("/api/employee", employeeRoute)
 app.use("/api/program", programRoute)
-
+app.use("/api/fieldtrip", fieldtripRoute)
 app.use("/api/class", classRoute)
 
 
