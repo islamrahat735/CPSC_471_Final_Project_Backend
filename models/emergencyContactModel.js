@@ -36,7 +36,7 @@ class EmergencyContactModel{
           }
         })
     }
-    delete = (Pno,callback)=>{
+    delete = (Pno, callback)=>{
         db.query(`DELETE FROM Emergency_Contact WHERE Pno= "${Pno}"`,(err,results)=>{
             if(err){
                 callback(err, null);
