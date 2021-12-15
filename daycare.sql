@@ -242,13 +242,12 @@ VALUES(1,"Dust");
 
 INSERT INTO Employee(Address, Fname, Lname, Phone_num, MR_Id)
 VALUES('121 Taradale Dr NE', 'John', 'Doe', '4032737373', 1),
-	("12 University Dr.", "Josephine", "Hill", "403-415-4234", 2),
+	("12 University Dr.", "Josephine", "Hill", "403-415-4234", NULL),
 	("12 Skyview Dr", "Josh", "Day", "403-333-3333", NULL);
-
-
 
 INSERT INTO Teacher(E_Id, Username)
 VALUES (2, 'josHill@gmail.com');
+
 
 INSERT INTO Program(Name, Fees, Age_Group)
 VALUES ("Preschool", 300, "2-4");
