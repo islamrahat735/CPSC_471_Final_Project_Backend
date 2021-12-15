@@ -213,14 +213,16 @@ CREATE TABLE Child_Attends_Field_Trip(
 INSERT INTO Account(Username,Password, Access)
 VALUES('parent@gmail.com', 'password', 'parent'),
 	('josHill@gmail.com', 'pass', 'teacher'),
-	('admin123@gmail.com', 'random', 'admin'),
+	('admin123@gmail.com', 'random', 'admin'),	
 	('sarahcameron@gmail.com', 'word', 'fieldtrip');
 
 INSERT INTO Primary_Parent(Address, Fname, Lname, Phone_num, Fees, Username)
 VALUES('121 Taradale Dr. NE', 'John', 'Doe', '403-273-7373', Default, 'parent@gmail.com');
 
+
+
 INSERT INTO Child(P_Id, Prog_name, Address, Fname, Lname, status, Dob, MR_Id)
-VALUES(1, NULL, '768 Deerfoot Meadows Cr. NE', 'Allen', 'Walker', 'Active', '2000-01-01', NULL);
+VALUES(1, 'Preschool', '768 Deerfoot Meadows Cr. NE', 'John', 'Walker', 'Active', '2000-06-06', NULL);
 
 INSERT INTO Medical_Record(Covid_Status)
 VALUES("negative"),
@@ -240,6 +242,9 @@ VALUES(1, "Flu");
 
 INSERT INTO MR_Allergies(MR_Id, Allergy)
 VALUES(1,"Dust");
+
+INSERT INTO Child(P_Id, Prog_name, Address, Fname, Lname, status, Dob, MR_Id)
+VALUES(1, 'Preschool', '768 Deerfoot Meadows Cr. NE', 'Allen', 'Walker', 'Active', '2000-01-01', 1);
 
 INSERT INTO Employee(Address, Fname, Lname, Phone_num, MR_Id)
 VALUES('121 Taradale Dr NE', 'John', 'Doe', '4032737373', 1),
