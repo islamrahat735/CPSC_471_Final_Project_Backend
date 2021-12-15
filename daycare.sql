@@ -213,7 +213,8 @@ CREATE TABLE Child_Attends_Field_Trip(
 INSERT INTO Account(Username,Password, Access)
 VALUES('parent@gmail.com', 'password', 'parent'),
 	('josHill@gmail.com', 'pass', 'teacher'),
-	('admin123@gmail.com', 'random', 'admin');
+	('admin123@gmail.com', 'random', 'admin'),
+	('sarahcameron@gmail.com', 'word', 'fieldtrip');
 
 INSERT INTO Primary_Parent(Address, Fname, Lname, Phone_num, Fees, Username)
 VALUES('121 Taradale Dr. NE', 'John', 'Doe', '403-273-7373', Default, 'parent@gmail.com');
@@ -248,7 +249,7 @@ VALUES('121 Taradale Dr NE', 'John', 'Doe', '4032737373', 1),
 
 INSERT INTO Teacher(E_Id, Username)
 VALUES (2, 'josHill@gmail.com'),
-	("123", 'sarahcameron@gmail.com');
+	(4, 'sarahcameron@gmail.com');
 
 
 INSERT INTO Program(Name, Fees, Age_Group)
