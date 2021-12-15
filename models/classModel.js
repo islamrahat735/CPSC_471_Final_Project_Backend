@@ -19,8 +19,8 @@ class ClassModel{
     }
 
     addClass = (input, callback) => {
-        const {cid, progName, className, time, tid} = input
-        db.query(`INSERT INTO Class(Prog_name, Class_name, Time, T_Id) VALUES(?,?,?,?)`, [cid, progName, className, time, tid], (err, results, fields) =>{
+        const { progName, className, startTime, endTime, tid} = input
+        db.query(`INSERT INTO Class(Prog_name, Class_name, startTime, endTime, T_Id) VALUES(?,?,?,?,?)`, [progName, className, startTime, endTime, tid], (err, results, fields) =>{
             if(err){
             callback(err, null)
             }
@@ -53,9 +53,24 @@ class ClassModel{
     }
 
     updateClass = (input, callback) => {
+        const{cid, progName,className, startTime, endTime, tid } = input;
         db.query(`UPDATE Class
-                SET Prog_name = ?,
-                Class_name = ?`,
-                Time)
+                SET 
+                Prog_name = ?,
+                Class_name = ?,
+                startTime = ?,
+                endTime = ?,
+                T_Id = ?
+                WHERE C_Id = ?`,
+                [progName,className, startTime, endTime, tid, cid], (err, result) => {
+                    if(err){
+                        callback(err, null)
+                    }
+                    else{
+                        callback(null, result)
+                    }
+                })
     }
 }
+
+module.exports = new ClassModel

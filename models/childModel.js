@@ -87,6 +87,33 @@ class ChildModel{
         })
     };
 
+    getAllChildrenOfParent = (pid, callback) => {
+        db.query('SELECT * FROM Child WHERE P_Id = ? ',[pid], (err, results) =>{
+            if(err){
+                callback(err, null);
+            }
+            else{
+                callback(null, results.map(x =>{
+                    x.Dob = this.dateToFormattedTime(x.Dob)
+                    return x;
+                }))
+            }
+        })
+    }
+
+    getAllChildrenOfParentByUsername = (username, callback) => {
+        db.query(`SELECT C.Child_Id, C.Fname, C.Lname
+                FROM Child As C, Primary_Parent as P 
+                WHERE C.P_Id = P.P_Id and P.Username = ?  `,[username], (err, results) =>{
+            if(err){
+                callback(err, null);
+            }
+            else{
+                callback(null, results)
+            }
+        })
+    }
+
     unixToFormattedTime = (unixTimestamp) =>{
         
         const date = new Date(unixTimestamp);
