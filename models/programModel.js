@@ -12,8 +12,8 @@ class ProgramModel{
         })
     }
 
-    findProgram = (progName, callback) =>{
-        db.query(`SELECT * FROM Program WHERE Name = ? `, [progName], (err, results) =>{
+    findProgram = (name, callback) =>{
+        db.query(`SELECT * FROM Program WHERE Name = ? `, [name], (err, results) =>{
             if(err){
                 callback(err, null)
             }else{
