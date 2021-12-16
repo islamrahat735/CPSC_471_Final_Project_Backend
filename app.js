@@ -23,6 +23,7 @@ const nurseRoute = require('./routes/nurse')
 const caretakerRoute = require('./routes/caretaker')
 const adminRoute=require('./routes/admin')
 const teacherRoute = require('./routes/teacher')
+const childEmergencyContactRoute = require('./routes/childEmergencyContact')
 const app = express();
 
 app.use(express.json());
@@ -33,6 +34,7 @@ app.use("/api/account", accountRoute)
 app.use("/api/parent", parentRoute)
 app.use("/api/child", childRoute)
 app.use("/api/emergencyContact", emergencyContactRoute)
+app.use("/api/childEmergencyContact", childEmergencyContactRoute)
 app.use("/api/medicalRecord", medicalRecordRoute)
 app.use("/api/mr/vaccination", mrVaccinationRoute)
 app.use("/api/mr/healthCondition", mrhealthConditionRoute)
