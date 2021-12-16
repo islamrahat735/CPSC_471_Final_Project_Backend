@@ -13,19 +13,16 @@ class ChildEmergencyContactController{
         
     }
 
-    
-    addChildEmergencyContact=(req,res)=>{
-        const{Pno, chId, relation}=req.body
-        childEmergencyContactModel.addChildEmergencyContact(Pno,chId, relation, (err,data)=>{
+    findOneChild = (req,res) => {
+        childEmergencyContactModel.findOneChild((err,data)=> {
             if(err){
-                res.status(500).send(err);
-            }
-            else{
-                res.status(200).send(req.body);
+                res.status(500).send(err)
+            }else{
+                res.status(200).send(data)
             }
         })
     }
-
+    
 
     findOne=(req,res)=>{
         const {Pno, chId}=req.params;

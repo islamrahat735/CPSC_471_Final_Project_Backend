@@ -11,4 +11,6 @@ router.get('/', childEmergencyContactController.findAll);
 
 router.delete('/:Pno/:chId', childEmergencyContactController.delete);
 
+router.get('/:chId', childEmergencyContactController.addChildEmergencyContact);
+
 module.exports = router;

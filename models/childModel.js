@@ -1,3 +1,4 @@
+const childEmergencyContactController = require("../controllers/childEmergencyContactController");
 const db = require("../repos/db");
 
 class ChildModel{
@@ -16,6 +17,7 @@ class ChildModel{
             }
         })
     };
+
 
     findChild = (chId, callback) => {
         db.query('SELECT * FROM Child WHERE Child_Id = ? ',[chId], (err, results) =>{
@@ -54,8 +56,16 @@ class ChildModel{
     };
 
     addChildEmergencyContact = (args, callback) => {
-        const {}
-    }
+        db.query('SELECT * FROM Child_Emergency_Contact WHERE Child_Id = ?', (err,results) =>{
+            if(err){
+                callback(err, null);
+            }
+            else{
+                results[0].Dob = this.dateToFormattedTime(results[0].Dob)
+                callback(null, results);
+            }
+        })
+    };
     updateChild = (args, callback) =>{
         const {chId, pid, prog, address, fName, lName, status, dob, mrid} = args;
         db.query(`
