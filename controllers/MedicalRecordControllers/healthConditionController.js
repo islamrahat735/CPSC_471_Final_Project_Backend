@@ -34,6 +34,7 @@ class HealthConditionController{
 
     addConditionById = (req, res) =>{
         const {mrid, condition} = req.body;
+        console.log(req.body);
         HealthConditionModel.addConditionById(mrid, condition, (err,data) => {
             if(err){
                 res.status(500).send(err);
