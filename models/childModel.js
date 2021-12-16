@@ -53,6 +53,9 @@ class ChildModel{
         })
     };
 
+    addChildEmergencyContact = (args, callback) => {
+        const {}
+    }
     updateChild = (args, callback) =>{
         const {chId, pid, prog, address, fName, lName, status, dob, mrid} = args;
         db.query(`

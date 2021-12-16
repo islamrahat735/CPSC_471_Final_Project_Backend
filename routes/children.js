@@ -17,4 +17,6 @@ router.get('/parent/:pid', ChildController.findChildrenOfParent)
 
 router.get('/username/:username', ChildController.findChildrenOfParentByUsername)
 
+router.get('/', ChildController, findone);
+
 module.exports = router;
