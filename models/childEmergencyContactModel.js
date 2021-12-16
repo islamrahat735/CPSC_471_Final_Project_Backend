@@ -51,7 +51,8 @@ class ChildEmergencyContactModel{
     }
 
     getChildEmergencyContacts = (chId, callback) => {
-        db.query('SELECT * FROM Child_Emergency_Contact WHERE Ch_Id = ?', [chId], (err,results) =>{
+        db.query(`SELECT E.Name, E.Pno, C.Relation FROM Child_Emergency_Contact As C, Emergency_Contact as E 
+        WHERE E.Pno = C.Pno and Ch_Id = ?`, [chId], (err,results) =>{
             if(err){
                 callback(err, null);
             }
