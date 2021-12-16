@@ -11,4 +11,6 @@ router.post('/', teacherController.addteacher);
 
 router.delete('/:eid', teacherController.delete)
 
+router.get('/username/:username', teacherController.getTeacherIDFromUsername)
+
 module.exports = router;

@@ -54,6 +54,17 @@ class teacherModel{
             }
         });
     }
+
+    getTeacherIDFromUsername = (username, callback) => {
+        db.query(`SELECT E_ID FROM Teacher WHERE Username = ?`, [username], (err, result) => {
+            if(err){
+                callback(err, null);
+            }
+            else{
+                callback(null, result);
+            }
+        })
+    }
 }
 
 module.exports = new teacherModel;

@@ -8,6 +8,8 @@ router.get('/', ClassController.findAll);
 
 router.get('/:cid', ClassController.findOne);
 
+router.get('/teacher/:tid', ClassController.findAllByTeacher)
+
 router.delete('/:cid', ClassController.delete);
 
 router.put('/', ClassController.updateClass)

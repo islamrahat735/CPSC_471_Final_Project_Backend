@@ -71,6 +71,25 @@ class ClassModel{
                     }
                 })
     }
+
+    findAllByTeacher = (tid, callback) => {
+    
+        db.query('SELECT * FROM Class WHERE T_Id = ?', [tid], (err, results ) =>{
+                if (err){
+                    callback(err, null);
+                    return;
+                }
+                //console.log(results);
+                //console.log(results);
+                callback(null, results);
+                return;
+                
+            });   
+    }
+
+    getClasslist = (tid, callback) => {
+        
+    }
 }
 
 module.exports = new ClassModel
