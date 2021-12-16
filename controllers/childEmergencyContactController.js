@@ -13,8 +13,9 @@ class ChildEmergencyContactController{
         
     }
 
-    findOneChild = (req,res) => {
-        childEmergencyContactModel.findOneChild((err,data)=> {
+    getChildEmergencyContacts = (req,res) => {
+        const chId = req.params.chId
+        childEmergencyContactModel.getChildEmergencyContacts(chId, (err,data)=> {
             if(err){
                 res.status(500).send(err)
             }else{
@@ -22,11 +23,22 @@ class ChildEmergencyContactController{
             }
         })
     }
-    
+    addChildEmergencyContact=(req,res)=>{
+        const{Pno, chId, relation}=req.body
+        childEmergencyContactModel.addChildEmergencyContact(Pno,chId, relation, (err,data)=>{
+            if(err){
+                res.status(500).send(err);
+            }
+            else{
+                res.status(200).send(req.body);
+            }
+        })
+    }
 
     findOne=(req,res)=>{
         const {Pno, chId}=req.params;
-        childEmergencyContactModel.findOne(Pno, chId, (err,data)=>{
+        const Id = parseInt(chId);
+        childEmergencyContactModel.findOne(Pno, Id, (err,data)=>{
             if(err){
                 res.status(500).send(err);
             }
@@ -43,8 +55,9 @@ class ChildEmergencyContactController{
     }
     delete =(req,res)=> {
         const {Pno, chId}=req.params;
+        const Id = parseInt(chId);
        
-        childEmergencyContactModel.findOne(Pno, chId, (err,data)=>{
+        childEmergencyContactModel.findOne(Pno, Id, (err,data)=>{
             if(err){
                 res.status(500).send(err);
             }

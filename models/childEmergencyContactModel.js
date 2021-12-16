@@ -29,7 +29,7 @@ class ChildEmergencyContactModel{
     }
 
     findOne=(Pno, chId, callback)=>{
-        db.query(`SELECT * FROM Child_Emergency_Contact WHERE Pno=? and chId = ?`,[Pno, chId] ,(err,results)=>{
+        db.query(`SELECT * FROM Child_Emergency_Contact WHERE Pno=? and Ch_Id = ?`,[Pno, chId] ,(err,results)=>{
             if(err){
                 callback(err,null);
             }
@@ -49,6 +49,18 @@ class ChildEmergencyContactModel{
             }
         })
     }
+
+    getChildEmergencyContacts = (chId, callback) => {
+        db.query('SELECT * FROM Child_Emergency_Contact WHERE Ch_Id = ?', [chId], (err,results) =>{
+            if(err){
+                callback(err, null);
+            }
+            else{
+                
+                callback(null, results);
+            }
+        })
+    };
 
 }
 
