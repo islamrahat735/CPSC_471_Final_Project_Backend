@@ -58,8 +58,8 @@ CREATE TABLE Child_Emergency_Contact(
 	Relation varchar(255),
 	
 	PRIMARY KEY (Pno, Ch_Id),
-	FOREIGN KEY (Pno) REFERENCES Emergency_Contact(Pno),
-	FOREIGN KEY (Ch_Id) REFERENCES Child(Child_Id)
+	FOREIGN KEY (Pno) REFERENCES Emergency_Contact(Pno) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (Ch_Id) REFERENCES Child(Child_Id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE MR_Vaccinations(
@@ -178,26 +178,22 @@ CREATE TABLE Field_Trip(
 
 CREATE TABLE Teacher_Attends_Class(
 	T_Id int,
-	Date DATE,
-	Prog_Name varchar(255),
+	Date varchar(255),
 	C_Id int,
 
-	PRIMARY KEY (T_Id, Date, Prog_Name, C_Id),
-	FOREIGN KEY(T_Id) REFERENCES Teacher(E_Id),
-	FOREIGN KEY(Prog_Name) REFERENCES Class(Prog_Name),
-	FOREIGN KEY(C_Id) REFERENCES Class(C_Id)
+	PRIMARY KEY (T_Id, Date, C_Id),
+	FOREIGN KEY(T_Id) REFERENCES Teacher(E_Id) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY(C_Id) REFERENCES Class(C_Id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Child_Attends_Class(
 	Child_Id int,
-	Date DATE,
-	Prog_Name varchar(255),
+	Date varchar(255),
 	C_Id int,
 
-	PRIMARY KEY (Child_Id, Date, Prog_Name, C_Id),
-	FOREIGN KEY(Child_Id) REFERENCES Child(Child_Id),
-	FOREIGN KEY(Prog_Name) REFERENCES Class(Prog_Name),
-	FOREIGN KEY(C_Id) REFERENCES Class(C_Id)
+	PRIMARY KEY (Child_Id, Date, C_Id),
+	FOREIGN KEY(Child_Id) REFERENCES Child(Child_Id) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY(C_Id) REFERENCES Class(C_Id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Child_Attends_Field_Trip(
@@ -265,10 +261,10 @@ VALUES ("Preschool", 300, "2-4"),
 -- INSERT INTO Class(Prog_name, Class_name, )
 
 INSERT INTO Nurse (E_Id)
-VALUES("1");
+VALUES(1);
 
 INSERT INTO Caretaker(E_Id)
-VALUES ("1");
+VALUES (1);
 
 INSERT INTO Admin (E_Id, Username)
 VALUES(3, 'admin123@gmail.com');
