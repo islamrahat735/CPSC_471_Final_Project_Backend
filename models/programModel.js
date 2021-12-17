@@ -29,7 +29,7 @@ class ProgramModel{
                 callback(err, null)
             }
             else{
-                db.query(`SELECT * FROM PROGRAM WHERE Name = ?`,[name], (err,results) =>{
+                db.query(`SELECT * FROM Program WHERE Name = ?`,[name], (err,results) =>{
                     if(err){
                         callback(err, null)
                     } else{

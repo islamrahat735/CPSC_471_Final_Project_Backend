@@ -88,12 +88,12 @@ class ClassModel{
     }
 
     getClasslist = (cId, callback) => {
-        db,query(`SELECT CH.Child_Id, CH.Fname, CH.Lname FROM Class as C, Programs as P, Child as CH WHERE C.Prog_name = P.Name
-                 and CH.Prog_name = P.Name and C.Class_name = ?`, [cId], (err, results) =>{
+        db.query(`SELECT CH.Child_Id, CH.Fname, CH.Lname FROM Class as C, Program as P, Child as CH WHERE C.Prog_name = P.Name
+                 and CH.Prog_name = P.Name and C.C_Id = ?`, [cId], (err, results) =>{
                      if(err){
                          callback(err, null)
                      }else{
-                         callback(null, err)
+                         callback(null, results)
                      }
                  })
     }
