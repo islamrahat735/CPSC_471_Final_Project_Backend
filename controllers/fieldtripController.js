@@ -25,7 +25,7 @@ class fieldtripController{
 
     findOne = (req, res) =>{
         const tripid = req.params.tripid;
-        ClassModel.findOne(tripid, (err, data) =>{
+        fieldtripModel.findOne(tripid, (err, data) =>{
             if(err){
                 res.status(500).send(err);
             }else{
@@ -36,7 +36,7 @@ class fieldtripController{
 
     delete = (req, res) =>{
         const tripid = req.params.tripid;
-        ClassModel.delete(tripid, (err, data) =>{
+        fieldtripModel.delete(tripid, (err, data) =>{
             if(err){
                 res.status(500).send(err);
             }else{

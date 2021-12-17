@@ -3,12 +3,15 @@ const express = require('express');
 const router = express.Router()
 const employeeEmergencyContactController = require('../controllers/employeeEmergencyContactController')
 
- router.post('/', childEmergencyContactController.addEmployeeEmergencyContact);
+ router.post('/', employeeEmergencyContactController.addEmployeeEmergencyContact);
 
-router.get('/', childEmergencyContactController.findAll);
+router.get('/', employeeEmergencyContactController.findAll);
 
- router.get('/:Pno/:eid', childEmergencyContactController.findOne);
+ router.get('/specific/:Pno/:eid', employeeEmergencyContactController.findOne);
 
-router.delete('/:Pno/:eid', childEmergencyContactController.delete);
+router.delete('/specific/:Pno/:eid', employeeEmergencyContactController.delete);
+
+router.get('/employee/:eId', employeeEmergencyContactController.getEmployeeEmergencyContacts);
+
 
 module.exports = router;

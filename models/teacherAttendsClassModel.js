@@ -12,7 +12,7 @@ class TeacherAttendsClassModel{
     }
 
     findOne = (tid, callback) =>{
-        db.query(`SELECT * FROM Teacher_Attends_Class WHERE T_Id = ?`,[tid], (err, results) =>{
+        db.query(`SELECT A.Date, C.C_Id, C.Class_name, C.Prog_name FROM Teacher_Attends_Class as A, Class as C WHERE C.C_Id = A.C_Id and A.T_Id = ?`,[tid], (err, results) =>{
             if(err){
                 callback(err, null);
             }else{

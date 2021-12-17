@@ -24,6 +24,11 @@ const caretakerRoute = require('./routes/caretaker')
 const adminRoute=require('./routes/admin')
 const teacherRoute = require('./routes/teacher')
 const childEmergencyContactRoute = require('./routes/childEmergencyContact')
+const employeeEmergencyContactRoute = require('./routes/employeeEmergencyContact')
+
+const childAttendsClass = require('./routes/childAttendsClass')
+const teacherAttendsClass = require('./routes/teacherAttendsClass')
+
 const app = express();
 
 app.use(express.json());
@@ -35,6 +40,7 @@ app.use("/api/parent", parentRoute)
 app.use("/api/child", childRoute)
 app.use("/api/emergencyContact", emergencyContactRoute)
 app.use("/api/childEmergencyContact", childEmergencyContactRoute)
+app.use("/api/employeeEmergencyContact", employeeEmergencyContactRoute)
 app.use("/api/medicalRecord", medicalRecordRoute)
 app.use("/api/mr/vaccination", mrVaccinationRoute)
 app.use("/api/mr/healthCondition", mrhealthConditionRoute)
@@ -49,6 +55,10 @@ app.use("/api/nurse", nurseRoute)
 app.use("/api/caretaker", caretakerRoute)
 app.use("/api/admin", adminRoute)
 app.use("/api/teacher", teacherRoute)
+
+app.use("/api/childAttendsClass", childAttendsClass)
+app.use("/api/teacherAttendsClass", teacherAttendsClass)
+
 app.get('/', (req, res) => {
     res.send('Hello ');
 });

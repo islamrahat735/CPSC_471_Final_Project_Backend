@@ -40,7 +40,7 @@ class EmployeeEmergencyContactModel{
     }
 
     delete = (Pno, eid, callback)=>{
-        db.query(`DELETE FROM Child_Emergency_Contact WHERE Pno= ? and E_Id = ?`,[Pno, eid], (err,results)=>{
+        db.query(`DELETE FROM Employee_Emergency_Contact WHERE Pno= ? and E_Id = ?`,[Pno, eid], (err,results)=>{
             if(err){
                 callback(err, null);
             }
@@ -49,6 +49,19 @@ class EmployeeEmergencyContactModel{
             }
         })
     }
+
+    getEmployeeEmergencyContacts = (eId, callback) => {
+        db.query(`SELECT E.Name, E.Pno, C.Relation FROM Employee_Emergency_Contact As C, Emergency_Contact as E 
+        WHERE E.Pno = C.Pno and C.E_Id = ?`, [eId], (err,results) =>{
+            if(err){
+                callback(err, null);
+            }
+            else{
+                
+                callback(null, results);
+            }
+        })
+    };
 
 }
 

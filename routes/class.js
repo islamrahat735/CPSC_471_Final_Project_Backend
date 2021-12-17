@@ -10,6 +10,8 @@ router.get('/:cid', ClassController.findOne);
 
 router.get('/teacher/:tid', ClassController.findAllByTeacher)
 
+router.get('/students/:cId', ClassController.getClassList)
+
 router.delete('/:cid', ClassController.delete);
 
 router.put('/', ClassController.updateClass)

@@ -62,7 +62,7 @@ class ProgramModel{
         //console.log(progName)
         db.query(`
             DELETE
-            FROM PROGRAM
+            FROM Program
             WHERE Name = ? `, [progName], (err,results) =>{
                 if(err){
                     callback(err, null)

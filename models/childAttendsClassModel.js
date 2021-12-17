@@ -12,7 +12,7 @@ class ChildAttendsClassModel{
     }
 
     findOne = (chId, callback) =>{
-        db.query(`SELECT * FROM Child_Attends_Class WHERE Child_Id = ?`,[chId], (err, results) =>{
+        db.query(`SELECT A.Date, C.C_Id, C.Class_name, C.Prog_name FROM Child_Attends_Class as A, Class as C WHERE C.C_Id = A.C_Id and Child_Id = ?`,[chId], (err, results) =>{
             if(err){
                 callback(err, null);
             }else{

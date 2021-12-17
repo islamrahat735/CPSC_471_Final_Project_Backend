@@ -14,7 +14,7 @@ class EmployeeEmergencyContactController{
     }
 
     
-    addChildEmergencyContact=(req,res)=>{
+    addEmployeeEmergencyContact=(req,res)=>{
         const{Pno, eid, relation}=req.body
         employeeEmergencyContactModel.addEmployeeEmergencyContact(Pno,eid, relation, (err,data)=>{
             if(err){
@@ -69,6 +69,17 @@ class EmployeeEmergencyContactController{
                 }
             }
             })
+    }
+
+    getEmployeeEmergencyContacts = (req,res) => {
+        const eId = req.params.eId
+        employeeEmergencyContactModel.getEmployeeEmergencyContacts(eId, (err,data)=> {
+            if(err){
+                res.status(500).send(err)
+            }else{
+                res.status(200).send(data)
+            }
+        })
     }
 }
 
