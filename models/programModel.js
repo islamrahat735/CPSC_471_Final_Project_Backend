@@ -33,7 +33,7 @@ class ProgramModel{
                     if(err){
                         callback(err, null)
                     } else{
-                        callback(err, results)
+                        callback(null, results)
                     }
                 })
             }
