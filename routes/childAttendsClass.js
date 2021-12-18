@@ -5,7 +5,7 @@ const childAttendsClassController = require("../controllers/childAttendsClassCon
 
 router.get('/', childAttendsClassController.findAll)
 
-router.get('/contactTrace/:chId/:cId/:date', childAttendsClassController.contactTrace)
+router.get('/contactTrace/:cId/:date', childAttendsClassController.contactTrace)
 
 router.get('/:chId', childAttendsClassController.findOne)
 

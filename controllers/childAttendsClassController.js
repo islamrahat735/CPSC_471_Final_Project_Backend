@@ -46,8 +46,8 @@ class ChildAttendsClassController{
     }
 
     contactTrace = (req, res) =>{
-        const {chId, cId, date} = req.params;
-        childAttendsClassModel.contactTrace(chId,cId,date, (err, data) =>{
+        const { cId, date} = req.params;
+        childAttendsClassModel.contactTrace(cId,date, (err, data) =>{
             if(err){
                 res.status(500).send(err);
             }else{
