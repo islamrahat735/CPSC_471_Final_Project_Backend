@@ -22,6 +22,7 @@ class teacherModel{
             }
         })
     }
+    
     addteacher = (username, eid, callback) => {
         db.query(`INSERT INTO Teacher (E_Id,Username) VALUES(?,?)`,[eid, username],
          (err, results) =>{

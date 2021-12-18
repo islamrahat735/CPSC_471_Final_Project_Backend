@@ -42,7 +42,7 @@ class ClassModel{
     }
 
     delete = (cid, callback) => {
-        db.query(`DELETE FROM CLASS WHERE C_Id = ?`, [cid], (err,results) => {
+        db.query(`DELETE FROM Class WHERE C_Id = ?`, [cid], (err,results) => {
             if(err){
                 callback(err, null);
             }
