@@ -16,7 +16,8 @@ class ParentModel{
     }
 
     findOne = (pid, result) => {
-        db.query(`SELECT * FROM Primary_Parent WHERE P_Id = "${pid}"`, (err, results) =>{
+        console.log(pid)
+        db.query(`SELECT * FROM Primary_Parent WHERE P_Id = ?`,[pid], (err, results) =>{
             if(err){
                 result(err, null);
             }
