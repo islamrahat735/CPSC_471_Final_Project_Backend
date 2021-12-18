@@ -42,11 +42,11 @@ class ChildAttendsClassModel{
         })
     }
 
-    contactTrace = (chId ,cId, date, callback) =>{
+    contactTrace = (cId, date, callback) =>{
 
         db.query(`SELECT C.Child_Id, C.Fname, C.Lname, M.Covid_Status, M.MR_Id FROM Child_Attends_Class as A, Child as C, Medical_Record as M 
         WHERE A.Child_Id = C.Child_Id and C.MR_Id = M.MR_Id  and M.Covid_Status = "negative" and
-        A.C_Id = ? and A.date =? and C.Child_Id <> ?`, [cId, date, chId], (err, result) =>{
+        A.C_Id = ? and A.date =?`, [cId, date], (err, result) =>{
             if(err){
                 callback(err, null)
             }else{
