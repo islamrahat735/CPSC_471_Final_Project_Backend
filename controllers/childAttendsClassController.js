@@ -35,7 +35,26 @@ class ChildAttendsClassController{
     }
 
     delete = (req, res) =>{
-        
+        const {chId, cId, date} = req.params;
+        childAttendsClassModel.delete(chId,cId,date, (err, data) =>{
+            if(err){
+                res.status(500).send(err);
+            }else{
+                res.status(200).send(data);
+            }
+        })
+    }
+
+    contactTrace = (req, res) =>{
+        const {chId, cId, date} = req.params;
+        childAttendsClassModel.contactTrace(chId,cId,date, (err, data) =>{
+            if(err){
+                res.status(500).send(err);
+            }else{
+                res.status(200).send(data);
+            }
+        })
+
     }
 }
 

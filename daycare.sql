@@ -271,3 +271,4 @@ VALUES(3, 'admin123@gmail.com');
  
 INSERT INTO Field_Trip (Trip_Id, Program, Location, T_Id)
 VALUES("20", 3, "Calgary", 4);
+

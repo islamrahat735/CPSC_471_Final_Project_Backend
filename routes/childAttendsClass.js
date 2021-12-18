@@ -5,10 +5,13 @@ const childAttendsClassController = require("../controllers/childAttendsClassCon
 
 router.get('/', childAttendsClassController.findAll)
 
+router.get('/contactTrace/:chId/:cId/:date', childAttendsClassController.contactTrace)
+
 router.get('/:chId', childAttendsClassController.findOne)
 
 router.post('/', childAttendsClassController.add)
 
-router.delete('/', childAttendsClassController.delete)
+router.delete('/:chId/:cId/:date', childAttendsClassController.delete)
+
 
 module.exports = router;

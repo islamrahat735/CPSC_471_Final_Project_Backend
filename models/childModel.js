@@ -79,6 +79,7 @@ class ChildModel{
             } )
     };
 
+
     deleteChild = (chId, callback) =>{
         db.query(`DELETE FROM Child WHERE Child_Id = ? `, [chId], (err, results) =>{
             if(err){
