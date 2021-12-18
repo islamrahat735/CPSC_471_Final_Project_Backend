@@ -108,6 +108,18 @@ class teacherController{
             }
         })
     }
+
+    getAllFull = (req,res) => {
+        teacherModel.findAllFull((err,result) => {
+            if(err){
+                res.status(500).send(err);
+                return;
+            }
+            else{
+            res.status(200).send(result);
+            }
+        })
+    }
 }
 
 module.exports = new teacherController;

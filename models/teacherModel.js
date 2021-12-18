@@ -65,6 +65,17 @@ class teacherModel{
             }
         })
     }
+
+    findAllFull = (result) => {
+        db.query('SELECT * FROM Teacher as T, Employee as E WHERE T.E_Id = E.E_Id', (err, results) => {
+            if(err){
+                result(err, null);
+                return;
+            }
+            result(null, results);
+            return;
+        });
+    }
 }
 
 module.exports = new teacherModel;

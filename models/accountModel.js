@@ -18,6 +18,7 @@ class AccountModel{
     }
 
     addAccount = (username, password, access, result) => {
+        //console.log(username, password, account);
         db.query(`INSERT INTO Account VALUES('${username}','${password}', '${access}')`, (err, results, fields) =>{
             if(err){
                 result(err, null)
