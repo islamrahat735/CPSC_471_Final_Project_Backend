@@ -33,6 +33,10 @@ class ChildAttendsClassController{
             }
         })
     }
+
+    delete = (req, res) =>{
+        
+    }
 }
 
 module.exports = new ChildAttendsClassController;

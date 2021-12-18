@@ -9,4 +9,6 @@ router.get('/:chId', childAttendsClassController.findOne)
 
 router.post('/', childAttendsClassController.add)
 
+router.delete('/', childAttendsClassController.delete)
+
 module.exports = router;

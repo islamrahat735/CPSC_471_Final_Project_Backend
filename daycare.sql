@@ -49,7 +49,7 @@ CREATE TABLE Child(
 
 	PRIMARY KEY (Child_Id),
 	FOREIGN KEY (P_Id) REFERENCES Primary_Parent(P_Id) ON UPDATE CASCADE ON DELETE CASCADE,
-	FOREIGN KEY (MR_Id) REFERENCES Medical_Record(MR_Id)
+	FOREIGN KEY (MR_Id) REFERENCES Medical_Record(MR_Id) ON UPDATE CASCADE ON DELETE SET NULL
 );
 
 CREATE TABLE Child_Emergency_Contact(
@@ -99,7 +99,7 @@ CREATE TABLE Employee(
 	MR_Id int ,
 
 	PRIMARY KEY (E_Id),
-	FOREIGN KEY (MR_Id) REFERENCES Medical_Record(MR_Id)
+	FOREIGN KEY (MR_Id) REFERENCES Medical_Record(MR_Id) ON UPDATE CASCADE ON DELETE SET NULL
 );
 
 CREATE TABLE Employee_Emergency_Contact(
@@ -108,8 +108,8 @@ CREATE TABLE Employee_Emergency_Contact(
 	Relation varchar(255),
 
 	PRIMARY KEY (Pno, E_Id),
-	FOREIGN KEY (Pno) REFERENCES Emergency_Contact(Pno),
-	FOREIGN KEY (E_Id) REFERENCES Employee(E_Id)
+	FOREIGN KEY (Pno) REFERENCES Emergency_Contact(Pno) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (E_Id) REFERENCES Employee(E_Id) ON UPDATE CASCADE ON DELETE CASCADE
 
 );
 
@@ -117,14 +117,14 @@ CREATE TABLE Nurse(
 	E_Id int,
 
 	PRIMARY KEY (E_Id),
-	FOREIGN KEY (E_Id) REFERENCES Employee(E_Id)
+	FOREIGN KEY (E_Id) REFERENCES Employee(E_Id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Caretaker(
 	E_Id int,
 
 	PRIMARY KEY (E_Id),
-	FOREIGN KEY (E_Id) REFERENCES Employee(E_Id)
+	FOREIGN KEY (E_Id) REFERENCES Employee(E_Id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Admin(
@@ -132,8 +132,8 @@ CREATE TABLE Admin(
 	Username varchar(255),
 
 	PRIMARY KEY (E_Id),
-	FOREIGN KEY (E_Id) REFERENCES Employee(E_Id),
-	FOREIGN KEY (Username) REFERENCES Account(Username)
+	FOREIGN KEY (E_Id) REFERENCES Employee(E_Id) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (Username) REFERENCES Account(Username) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Teacher(
@@ -141,8 +141,8 @@ CREATE TABLE Teacher(
 	Username varchar(255),
 
 	PRIMARY KEY (E_Id),
-	FOREIGN KEY (E_Id) REFERENCES Employee(E_Id),
-	FOREIGN KEY (Username) REFERENCES Account(Username)
+	FOREIGN KEY (E_Id) REFERENCES Employee(E_Id) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (Username) REFERENCES Account(Username) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Program(
@@ -162,7 +162,7 @@ CREATE TABLE Class(
 	T_Id int,
 
 	PRIMARY KEY(C_Id, Prog_name),
-	FOREIGN KEY(Prog_name) REFERENCES Program(Name),
+	FOREIGN KEY(Prog_name) REFERENCES Program(Name) ON UPDATE CASCADE ON DELETE CASCADE,
 	FOREIGN KEY(T_Id) REFERENCES Teacher(E_Id)
 );
 
@@ -201,8 +201,8 @@ CREATE TABLE Child_Attends_Field_Trip(
 	Trip_Id int NOT NULL,
 
 	PRIMARY KEY(Ch_Id, Trip_Id),
-	FOREIGN KEY(Ch_Id) REFERENCES Child(Child_Id),
-	FOREIGN KEY(Trip_Id) REFERENCES Field_Trip(Trip_Id)
+	FOREIGN KEY(Ch_Id) REFERENCES Child(Child_Id) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY(Trip_Id) REFERENCES Field_Trip(Trip_Id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 
@@ -210,7 +210,7 @@ INSERT INTO Account(Username,Password, Access)
 VALUES('parent@gmail.com', 'password', 'parent'),
 	('josHill@gmail.com', 'pass', 'teacher'),
 	('admin123@gmail.com', 'random', 'admin'),	
-	('sarahcameron@gmail.com', 'word', 'fieldtrip');
+	('sarahcameron@gmail.com', 'word', 'TEACHER');
 
 INSERT INTO Primary_Parent(Address, Fname, Lname, Phone_num, Fees, Username)
 VALUES('121 Taradale Dr. NE', 'John', 'Doe', '403-273-7373', Default, 'parent@gmail.com');
