@@ -10,20 +10,13 @@ If you encounter errors enter the following code to update dependencies:
 
 npm i
 
-Using the Database: You will need to install MySQL on your system and create a new user
+Our database is hosted on aws, so there is no need to download the database locally
 
-The code is:
+AWS info:
+```
+ host: daycare1.cuhvrmx7alrb.us-east-2.rds.amazonaws.com
+  user: admin
+  password: daycarecpsc471
+  database: DAYCARE
 
-```
-CREATE USER 'daycare'@'localhost'
-  IDENTIFIED BY 'cpsc471';
-GRANT ALL
-  ON *.*
-  TO 'daycare'@'localhost'
-  WITH GRANT OPTION;
-```
-Next you can download the schema onto your system using the following command on the MySQL command line client
-
-```
-source <path to db.sql>
 ```
